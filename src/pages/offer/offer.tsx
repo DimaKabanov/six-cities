@@ -1,4 +1,4 @@
-function PropertyScreen(): JSX.Element {
+function OfferScreen(): JSX.Element {
   return (
     <div className="page">
       <header className="header">
@@ -328,4 +328,4 @@ function PropertyScreen(): JSX.Element {
   );
 }
 
-export default PropertyScreen;
+export default OfferScreen;
