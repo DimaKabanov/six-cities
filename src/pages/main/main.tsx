@@ -1,10 +1,12 @@
-import PlaceCard from '../../components/place-card/place-card';
+import OfferList from '../../components/offer-list/offer-list';
+
+import { Offer } from '../../types/offer';
 
 type MainScreenProps = {
-  offerCount: number;
+  offers: Offer[];
 }
 
-function MainScreen({ offerCount }: MainScreenProps): JSX.Element {
+function MainScreen({ offers }: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -85,16 +87,14 @@ function MainScreen({ offerCount }: MainScreenProps): JSX.Element {
                     <use xlinkHref="#icon-arrow-select" />
                   </svg>
                 </span>
-                <ul className="places__options places__options--custom places__options--opened">
+                <ul className="places__options places__options--custom">
                   <li className="places__option places__option--active" tabIndex={0}>Popular</li>
                   <li className="places__option" tabIndex={0}>Price: low to high</li>
                   <li className="places__option" tabIndex={0}>Price: high to low</li>
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {Array.from({ length: offerCount }, () => <PlaceCard key={1} />)}
-              </div>
+              {<OfferList offers={offers} />}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" />
