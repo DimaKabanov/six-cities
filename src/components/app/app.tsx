@@ -8,19 +8,20 @@ import OfferScreen from '../../pages/offer/offer';
 import NotFoundScreen from '../../pages/not-found/not-found';
 import PrivateRoute from '../private-router/private-router';
 
-import { Offer } from '../../types/offer';
+import type { Offer, City } from '../../types/offer';
 
 type AppProps = {
   offers: Offer[];
+  city: City;
 }
 
-function App({ offers }: AppProps): JSX.Element {
+function App({ offers, city }: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Root}
-          element={<MainScreen offers={offers} />}
+          element={<MainScreen offers={offers} city={city} />}
         />
         <Route
           path={AppRoute.Login}

@@ -1,12 +1,14 @@
 import OfferList from '../../components/offer-list/offer-list';
+import Map from '../../components/map/map';
 
-import { Offer } from '../../types/offer';
+import type { Offer, City } from '../../types/offer';
 
 type MainScreenProps = {
   offers: Offer[];
+  city: City;
 }
 
-function MainScreen({ offers }: MainScreenProps): JSX.Element {
+function MainScreen({ offers, city }: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -97,7 +99,7 @@ function MainScreen({ offers }: MainScreenProps): JSX.Element {
               {<OfferList offers={offers} />}
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map" />
+              <Map city={city} locations={offers.map((offer) => offer.location)} />
             </div>
           </div>
         </div>

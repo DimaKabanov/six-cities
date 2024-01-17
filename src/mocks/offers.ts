@@ -1,4 +1,4 @@
-import { Offer } from '../types/offer';
+import type { Offer } from '../types/offer';
 
 export const offers: Offer[] = [
   {
@@ -11,6 +11,11 @@ export const offers: Offer[] = [
     inFavorites: false,
     type: 'apartment',
     city: 'Amsterdam',
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+      zoom: 1
+    },
   },
   {
     id: 2,
@@ -22,6 +27,11 @@ export const offers: Offer[] = [
     inFavorites: true,
     type: 'room',
     city: 'Amsterdam',
+    location: {
+      latitude: 52.369553943508,
+      longitude: 4.85309666406198,
+      zoom: 1
+    },
   },
   {
     id: 3,
@@ -33,6 +43,11 @@ export const offers: Offer[] = [
     inFavorites: true,
     type: 'house',
     city: 'Amsterdam',
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
+      zoom: 1
+    },
   },
   {
     id: 4,
@@ -44,5 +59,10 @@ export const offers: Offer[] = [
     inFavorites: true,
     type: 'hotel',
     city: 'Cologne',
+    location: {
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
+      zoom: 1
+    },
   },
 ];
