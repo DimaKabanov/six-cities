@@ -9,13 +9,15 @@ import NotFoundScreen from '../../pages/not-found/not-found';
 import PrivateRoute from '../private-router/private-router';
 
 import type { Offer, City } from '../../types/offer';
+import type { Review } from '../../types/review';
 
 type AppProps = {
   offers: Offer[];
   city: City;
+  reviews: Review[];
 }
 
-function App({ offers, city }: AppProps): JSX.Element {
+function App({ offers, city, reviews }: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -37,7 +39,7 @@ function App({ offers, city }: AppProps): JSX.Element {
         />
         <Route
           path={`${AppRoute.Offer}/:id`}
-          element={<OfferScreen />}
+          element={<OfferScreen reviews={reviews} city={city} nearbyOffers={offers} />}
         />
         <Route
           path="*"

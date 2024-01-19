@@ -8,6 +8,7 @@ import { urlMarkerDefault } from '../../const';
 type MapProps = {
   locations: Location[];
   city: City;
+  place?: 'property' | 'cities';
 }
 
 const defaultCustomIcon = new Icon({
@@ -16,7 +17,7 @@ const defaultCustomIcon = new Icon({
   iconAnchor: [20, 40]
 });
 
-function Map({ city, locations }: MapProps): JSX.Element {
+function Map({ city, locations, place = 'cities' }: MapProps): JSX.Element {
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
 
@@ -34,7 +35,7 @@ function Map({ city, locations }: MapProps): JSX.Element {
   }, [map, locations]);
 
   return (
-    <section ref={mapRef} className="cities__map map" />
+    <section ref={mapRef} className={`${place}__map map`} />
   );
 }
 

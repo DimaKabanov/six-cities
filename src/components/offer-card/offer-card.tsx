@@ -2,14 +2,12 @@ import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { Offer } from '../../types/offer';
 import { AppRoute } from '../../const';
-import { maxRatingCount } from '../../const';
-
-const maxPercentRatingStarsWidth = 100;
+import { getStarWidth } from '../../utils';
 
 type OfferCardProps = Offer & {
   onMouseMove?: (id: number) => void;
   onMouseLeave?: () => void;
-  place?: 'cities' | 'favorites';
+  place?: 'cities' | 'favorites' | 'near-places';
 };
 
 function OfferCard(props: OfferCardProps): JSX.Element {
@@ -72,7 +70,7 @@ function OfferCard(props: OfferCardProps): JSX.Element {
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
             <span style={{
-              width: `${(maxPercentRatingStarsWidth * rating) / maxRatingCount}%`
+              width: `${getStarWidth(rating)}%`
             }}
             />
             <span className="visually-hidden">Rating</span>

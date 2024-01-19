@@ -12,6 +12,7 @@ export enum AuthorizationStatus {
 }
 
 export const maxRatingCount = 5;
+export const maxPercentRatingStarsWidth = 100;
 
 export const cities = ['Amsterdam', 'Cologne', 'Brussels', 'Hamburg', 'Dusseldorf'] as const;
 
